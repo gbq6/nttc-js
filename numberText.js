@@ -1,40 +1,37 @@
-const NUMBERS = ["", "egy", "két", "három", "négy", "öt", "hat", "hét", "nyolc", "kilenc"]
+const NUMBERS = ['', 'egy', 'két', 'három', 'négy', 'öt', 'hat', 'hét', 'nyolc', 'kilenc']
 
-const PRODUCTS_OF_TEN = ["", "tíz", "húsz", "harminc", "negyven", "ötven", "hatvan", "hetven", "nyolcvan", "kilencven"]
+const PRODUCTS_OF_TEN = ['', 'tíz', 'húsz', 'harminc', 'negyven', 'ötven', 'hatvan', 'hetven', 'nyolcvan', 'kilencven']
 
 const POWERS_OF_TEN = [
-    "szexdecilliárd", "szexdecillió", "kvintdecilliárd", "kvintdecillió", "kvadecilliárd", "kvadecillió", "tridecilliárd",
-    "tridecillió", "bidecilliárd", "bidecillió", "undecilliárd", "undecillió", "decilliárd", "decillió", "nonilliárd", "nonillió",
-    "oktilliárd", "oktillió", "szeptilliárd", "szeptillió", "szextilliárd", "szextillió", "kvintilliárd", "kvintillió",
-    "kvadrilliárd", "kvadrillió", "trilliárd", "trillió", "billiárd", "billió", "milliárd", "millió", "ezer", ""
+    'szexdecilliárd', 'szexdecillió', 'kvintdecilliárd', 'kvintdecillió', 'kvadecilliárd', 'kvadecillió', 'tridecilliárd',
+    'tridecillió', 'bidecilliárd', 'bidecillió', 'undecilliárd', 'undecillió', 'decilliárd', 'decillió', 'nonilliárd', 'nonillió',
+    'oktilliárd', 'oktillió', 'szeptilliárd', 'szeptillió', 'szextilliárd', 'szextillió', 'kvintilliárd', 'kvintillió',
+    'kvadrilliárd', 'kvadrillió', 'trilliárd', 'trillió', 'billiárd', 'billió', 'milliárd', 'millió', 'ezer', ''
 ]
 
-const TOTAL_NUMBER_OF_GROUPS = POWERS_OF_TEN.length
-const DIGITS_IN_GROUP = 3
-const MOST_POSSIBLE_DIGITS = TOTAL_NUMBER_OF_GROUPS * DIGITS_IN_GROUP
+export const ZERO = 'nulla'
+export const TWO = 'kettő'
+export const TEN_SOMETHING = 'tizen'
+export const TWENTY_SOMETHING = 'huszon'
+export const HUNDRED = 'száz'
 
-function getHundredPlaceTextFor(digit) {
+export const THOUSAND_GROUP_SEPARATOR = '-'
+export const DIGITS_IN_GROUP = 3
+export const TOTAL_NUMBER_OF_GROUPS = POWERS_OF_TEN.length
+export const MOST_POSSIBLE_DIGITS = DIGITS_IN_GROUP * TOTAL_NUMBER_OF_GROUPS
+
+export function getHundredPlaceTextFor(digit) {
     return NUMBERS[digit];
 }
 
-function getTenPlaceTextFor(digit) {
+export function getTenPlaceTextFor(digit) {
     return PRODUCTS_OF_TEN[digit]
 }
 
-function getOnePlaceTextFor(digit) {
+export function getOnePlaceTextFor(digit) {
     return NUMBERS[digit]
 }
 
-function getThousandGroupNameFor(groupNumber) {
+export function getThousandGroupNameFor(groupNumber) {
     return POWERS_OF_TEN[groupNumber]
-}
-
-module.exports = {
-    DIGITS_IN_GROUP,
-    MOST_POSSIBLE_DIGITS,
-    TOTAL_NUMBER_OF_GROUPS,
-    getHundredPlaceTextFor,
-    getTenPlaceTextFor,
-    getOnePlaceTextFor,
-    getThousandGroupNameFor
 }

@@ -1,31 +1,30 @@
-const validate = require('./validator')
-const getHundredPlaceTextFor = require('./numberText').getHundredPlaceTextFor
-const getTenPlaceTextFor = require('./numberText').getTenPlaceTextFor
-const getOnePlaceTextFor = require('./numberText').getOnePlaceTextFor
-const getThousandGroupNameFor = require('./numberText').getThousandGroupNameFor
+import {validate} from './validator.js'
+import {
+    DIGITS_IN_GROUP,
+    getHundredPlaceTextFor,
+    getOnePlaceTextFor,
+    getTenPlaceTextFor,
+    getThousandGroupNameFor,
+    HUNDRED,
+    MOST_POSSIBLE_DIGITS,
+    TEN_SOMETHING,
+    THOUSAND_GROUP_SEPARATOR,
+    TOTAL_NUMBER_OF_GROUPS,
+    TWENTY_SOMETHING,
+    TWO,
+    ZERO
+} from './numberText.js'
 
-const TOTAL_NUMBER_OF_GROUPS = require('./numberText').TOTAL_NUMBER_OF_GROUPS
-const MOST_POSSIBLE_DIGITS = require('./numberText').MOST_POSSIBLE_DIGITS
-const DIGITS_IN_GROUP = require('./numberText').DIGITS_IN_GROUP
+let isMoreThanTwoThousand
+let number
+let result
 
-const ZERO = "nulla"
-const TWO = "kettő"
-const TEN_SOMETHING = "tizen"
-const TWENTY_SOMETHING = "huszon"
-const HUNDRED = "száz"
+let groups
+let hundredPlaceDigit
+let tenPlaceDigit
+let onePlaceDigit
 
-const THOUSAND_GROUP_SEPARATOR = "-"
-
-var isMoreThanTwoThousand
-var number
-var result
-
-var groups
-var hundredPlaceDigit
-var tenPlaceDigit
-var onePlaceDigit
-
-function convert(number) {
+export function convert(number) {
     prepareConversion(number)
     return convertNumber()
 }
@@ -38,23 +37,23 @@ function prepareConversion(numberToConvert) {
 
 function convertNumber() {
     if (isNumberZero()) {
-        result += ZERO
-    } else {
-        checkIfNumberIsMoreThanTwoThousand()
-        splitNumberToThousandGroups()
-        convertGroups()
+        return ZERO
     }
+
+    checkIfNumberIsMoreThanTwoThousand()
+    splitNumberToThousandGroups()
+    convertGroups()
+
     return result
 }
 
 function isNumberZero() {
-    return number == "0"
+    return number == '0'
 }
 
 function checkIfNumberIsMoreThanTwoThousand() {
-    if (number.length > 4 || parseInt(number) > 2000) {
-        isMoreThanTwoThousand = true
-    }
+    // The first condition's purpose is to improve performance
+    isMoreThanTwoThousand = number.length > 4 || parseInt(number) > 2000
 }
 
 function splitNumberToThousandGroups() {
@@ -66,7 +65,7 @@ function splitNumberToThousandGroups() {
 }
 
 function fillNumberWithLeadingZeroes(numberOfLeadingZeroesNeeded) {
-    number = "0".repeat(numberOfLeadingZeroesNeeded) + number
+    number = '0'.repeat(numberOfLeadingZeroesNeeded) + number
 }
 
 function setGroupValueOf(groupNumber) {
@@ -160,5 +159,3 @@ function isNumberNotOneThousandSomething(group) {
 function addThousandGroupName(group) {
     result += getThousandGroupNameFor(group)
 }
-
-module.exports = convert
