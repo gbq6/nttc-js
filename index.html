@@ -26,6 +26,11 @@
             output.addEventListener('click', function () {
                 navigator.clipboard.writeText(output.textContent)
             })
+
+            let url = document.URL
+            let number = url.substring(url.indexOf('?') + 1)
+            input.value = number
+            output.textContent = convert(number)
         </script>
     </body>
 </html>
