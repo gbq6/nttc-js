@@ -11,12 +11,12 @@ export function validate(number) {
 }
 
 function validateFormatOf(number) {
-    if (isNumberNotValid(number)) {
+    if (isNumberInvalid(number)) {
         throw new NumberFormatError
     }
 }
 
-function isNumberNotValid(number) {
+function isNumberInvalid(number) {
     return !DIGITS_ONLY_REGEX.test(number)
 }
 
