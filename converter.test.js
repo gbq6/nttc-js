@@ -7,6 +7,8 @@ const TOO_LONG_VALID_NUMBER = '000' + '9'.repeat(MOST_POSSIBLE_DIGITS)
 const TOO_LONG_NUMBER = '9'.repeat(MOST_POSSIBLE_DIGITS + 1)
 
 const TEST_CASES = [
+    { input: null, expected: '' },
+    { input: '', expected: '' },
     { input: '0', expected: 'nulla' },
     { input: '2', expected: 'kettő' },
     { input: '10', expected: 'tíz' },
@@ -86,10 +88,8 @@ const TEST_CASES = [
 ]
 
 const WRONG_FORMAT_CASES = [
-    '',
     'a',
     '-1',
-    null,
     '0.1',
     '0,1',
     '123a',

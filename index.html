@@ -17,8 +17,7 @@
 
             input.addEventListener('input', function() {
                 try {
-                    let inputValue = input.value
-                    output.textContent = inputValue === '' ? '' : convert(input.value)
+                    output.textContent = convert(input.value)
                 } catch (error) {
                     output.textContent = error.message
                 }

@@ -17,7 +17,7 @@ function validateFormatOf(number) {
 }
 
 function isNumberNotValid(number) {
-    return number == null || number.trim() == '' || !DIGITS_ONLY_REGEX.test(number)
+    return !DIGITS_ONLY_REGEX.test(number)
 }
 
 function removeLeadingZeroesFrom(number) {

@@ -15,24 +15,21 @@ import {
     ZERO
 } from './numberText.js'
 
-let isMoreThanTwoThousand
 let number
 let result
 
-let groups
+let isMoreThanTwoThousand
+let groups = Array(TOTAL_NUMBER_OF_GROUPS)
 let hundredPlaceDigit
 let tenPlaceDigit
 let onePlaceDigit
 
-export function convert(number) {
-    prepareConversion(number)
-    return convertNumber()
-}
-
-function prepareConversion(numberToConvert) {
-    number = validate(numberToConvert)
+export function convert(numberToConvert) {
+    number = numberToConvert
+    if (isEmpty()) return ''
+    number = validate(number)
     result = ''
-    groups = Array(TOTAL_NUMBER_OF_GROUPS)
+    return convertNumber()
 }
 
 function convertNumber() {
@@ -43,6 +40,10 @@ function convertNumber() {
     convertGroups()
 
     return result
+}
+
+function isEmpty() {
+    return number == null || number.trim() === ''
 }
 
 function isNumberZero() {
