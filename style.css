@@ -19,5 +19,6 @@ input[type="number"]::placeholder {
 }
 #output {
     color: #f0f0f0;
+    cursor: pointer;
     margin-top: 10px;
 }

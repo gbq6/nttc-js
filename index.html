@@ -23,6 +23,10 @@
                     output.textContent = error.message
                 }
             })
+
+            output.addEventListener('click', function () {
+                navigator.clipboard.writeText(output.textContent)
+            })
         </script>
     </body>
 </html>
