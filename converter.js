@@ -15,6 +15,8 @@ import {
     ZERO
 } from './numberText.js'
 
+const EMPTY_STRING = ''
+
 let number
 let result
 
@@ -26,9 +28,9 @@ let onePlaceDigit
 
 export function convert(numberToConvert) {
     number = numberToConvert
-    if (isEmpty()) return ''
+    if (isEmpty()) return EMPTY_STRING
     number = validate(number)
-    result = ''
+    result = EMPTY_STRING
     return convertNumber()
 }
 
@@ -43,7 +45,7 @@ function convertNumber() {
 }
 
 function isEmpty() {
-    return number == null || number.trim() === ''
+    return number == null || number.trim() === EMPTY_STRING
 }
 
 function isNumberZero() {
