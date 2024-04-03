@@ -10,10 +10,10 @@
     <input id="input" type="number" placeholder="Adj meg egy számot" onkeypress="return event.keyCode === 8 || event.charCode >= 48 && event.charCode <= 57" autofocus>
         <div id="output"></div>
         <script type="module">
-            import {convert} from "./converter.js";
+            import {convert} from './converter.js'
 
-            let input = document.querySelector("#input")
-            let output = document.querySelector("#output")
+            let input = document.querySelector('#input')
+            let output = document.querySelector('#output')
 
             input.addEventListener('input', function() {
                 try {

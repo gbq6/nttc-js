@@ -36,14 +36,14 @@ function isNumberTooLong(number) {
 
 export class NumberFormatError extends Error {
     constructor() {
-        super('Nem megfelelő formátum: Csak számjegyeket használj!');
+        super('Nem megfelelő formátum: Csak számjegyeket használj!')
         this.name = 'NumberFormatError'
     }
 }
 
 export class NumberLengthError extends Error {
     constructor(number) {
-        super(`A megadott szám túl hosszú: ${number.length} számjegy a maximális ${MOST_POSSIBLE_DIGITS} helyett!`);
+        super(`A megadott szám túl hosszú: ${number.length} számjegy a maximális ${MOST_POSSIBLE_DIGITS} helyett!`)
         this.name = 'NumberLengthError'
     }
 }

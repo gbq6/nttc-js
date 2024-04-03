@@ -1,6 +1,6 @@
 import {convert} from './converter.js'
 import {MOST_POSSIBLE_DIGITS} from './numberText.js'
-import {NumberFormatError, NumberLengthError} from "./validator.js";
+import {NumberFormatError, NumberLengthError} from './validator.js'
 
 const LONGEST_VALID_NUMBER = '9'.repeat(MOST_POSSIBLE_DIGITS)
 const TOO_LONG_VALID_NUMBER = '000' + '9'.repeat(MOST_POSSIBLE_DIGITS)
@@ -118,7 +118,7 @@ function testConversion() {
             console.error(`Input: ${testCase.input}\n${error}\n`)
             failures++
         }
-    });
+    })
     return failures
 }
 
@@ -126,7 +126,7 @@ function testNumberFormatValidation() {
     let failures = 0
     WRONG_FORMAT_CASES.forEach(testCase => {
         failures += assertError(testCase, NumberFormatError)
-    });
+    })
     return failures
 }
 

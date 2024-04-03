@@ -21,7 +21,7 @@ export const TOTAL_NUMBER_OF_GROUPS = POWERS_OF_TEN.length
 export const MOST_POSSIBLE_DIGITS = DIGITS_IN_GROUP * TOTAL_NUMBER_OF_GROUPS
 
 export function getHundredPlaceTextFor(digit) {
-    return NUMBERS[digit];
+    return NUMBERS[digit]
 }
 
 export function getTenPlaceTextFor(digit) {
