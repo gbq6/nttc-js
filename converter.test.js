@@ -115,7 +115,7 @@ function testConversion() {
                 failures++
             }
         } catch (error) {
-            console.error(`${COLORS.RED}Input: ${testCase.input}\n${error}\n`)
+            console.error(`Input: ${testCase.input}\n${error}\n`)
             failures++
         }
     });
