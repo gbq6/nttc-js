@@ -36,9 +36,7 @@ function prepareConversion(numberToConvert) {
 }
 
 function convertNumber() {
-    if (isNumberZero()) {
-        return ZERO
-    }
+    if (isNumberZero()) return ZERO
 
     checkIfNumberIsMoreThanTwoThousand()
     splitNumberToThousandGroups()
@@ -57,14 +55,14 @@ function checkIfNumberIsMoreThanTwoThousand() {
 }
 
 function splitNumberToThousandGroups() {
-    let numberOfLeadingZeroesNeeded = MOST_POSSIBLE_DIGITS - number.length
-    fillNumberWithLeadingZeroes(numberOfLeadingZeroesNeeded)
+    fillNumberWithLeadingZeroes()
     for (let group = 0; group < MOST_POSSIBLE_DIGITS; group += DIGITS_IN_GROUP) {
         setGroupValueOf(group)
     }
 }
 
-function fillNumberWithLeadingZeroes(numberOfLeadingZeroesNeeded) {
+function fillNumberWithLeadingZeroes() {
+    let numberOfLeadingZeroesNeeded = MOST_POSSIBLE_DIGITS - number.length
     number = '0'.repeat(numberOfLeadingZeroesNeeded) + number
 }
 
